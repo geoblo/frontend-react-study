@@ -77,6 +77,19 @@
     num1 %= num2;
     document.write(num1, '<br>');
 
+    // (참고) 대입 연산자 응용
+    // 데이터를 동적으로 받아와서 넣어줄 때 사용
+    // innerHTML, appendChild(), insertBefore()
+    const data1 = '데이터1', data2 = '데이터2', data3 = '데이터3';
+    let html = '<table border="1">';
+    html    += '  <tr>';
+    html    += `    <td>${data1}</td>`;
+    html    += `    <td>${data2}</td>`;
+    html    += `    <td>${data3}</td>`;
+    html    += '  </tr>';
+    html    += '</table>';
+    document.write(html);
+
     // 증감 연산자
     // ++(1씩 증가), --(1씩 감소)
     document.write('<h2>증감 연산자</h2>');
@@ -103,6 +116,56 @@
     result = ++num1 + num2--;
     // result, num1, num2에 저장된 값은?
     // 순서대로 풀어서 써보기!
+    // num1 = num1 + 1;
+    // result = num1 + num2;
+    // num2 = num2 - 1;
+    document.write(result, '<br>');
+
+    // 비교 연산자
+    // 데이터를 서로 비교하여 결과값으로 true(참), false(거짓)를 반환
+    // >, <, >=, <=, ==, !=, ===(권장), !==(권장)
+    document.write('<h2>비교 연산자</h2>');
+    let a = 10;
+    let b = 20;
+    let c = 10;
+    let f = '20';
+
+    result = a > b;
+    document.write(result, '<br>');
+    result = a < b;
+    document.write(result, '<br>');
+    result = a <= b;
+    document.write(result, '<br>');
+    result = b == f; // 값만 비교
+    document.write(result, '<br>');
+    result = b === f; // 값과 타입까지 비교(권장)
+    document.write(result, '<br>');
+    result = a != b;
+    document.write(result, '<br>');
+    result = b != f; // 값만 비교
+    document.write(result, '<br>');
+    result = b !== f; // 값과 타입까지 비교(권장)
+    document.write(result, '<br>');
+
+    // 논리 연산자
+    // &&(AND): 피연산자 둘 다 true일때만 true, 피자 그리고 떡볶이 사와
+    // ||(OR): 둘 중 한 개만 true이면 true, 피자 또는 떡볶이 사와
+    // !(NOT): 부정 연산자, true <=> false
+    document.write('<h2>논리 연산자</h2>');
+    a = 10;
+    b = 20;
+    let m = 30;
+    let n = 40;
+
+    // (참고) 연산자의 우선순위
+    // 1. ( ) - 헷갈리면 사용 권장
+    // 2. 단항 연산자(++, --, !)
+    // 3. 산술 연산자(+, -, *, /, %)
+    // 4. 비교 연산자(>, <, >=, <=, ==, !=, ===, !==)
+    // 5. 논리 연산자(&&, ||)
+    // 6. 대입 연산자(=)
+
+
 
   </script>
 </head>
