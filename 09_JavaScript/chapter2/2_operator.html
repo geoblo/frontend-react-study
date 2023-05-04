@@ -165,6 +165,42 @@
     // 5. 논리 연산자(&&, ||)
     // 6. 대입 연산자(=)
 
+    result = a > b || b >= m || m > n; // false || false || false
+    document.write(result, '<br>'); // false
+    
+    result = a > b || b >= m || m <= n; // false || false || true
+    document.write(result, '<br>'); // true
+    
+    result = a <= b && b >= m && m <= n; // true && false && true
+    document.write(result, '<br>'); // false
+    
+    result = a <= b && b <= m && m <= n; // true && true && true
+    document.write(result, '<br>'); // true
+
+    result = !(a > b); // !false
+    document.write(result, '<br>'); // true
+
+    // Short-circuit evaluation(단축 평가)
+    result = a > b && m <= n; // false && 
+    document.write(result, '<br>'); // false
+    
+    result = a < b || m > n; // true || 
+    document.write(result, '<br>'); // true
+
+    // (응용) 필요 시 기본값 설정
+    // false로 취급되는 값: 0, null, undefined, ''(빈문자), NaN
+    const dbData = null;
+    result = dbData || '기본값';
+    document.write(result, '<br>');
+
+    // (심화) Short-circuit evaluation 예제
+    let aa; // falsy value
+    let bb = null; // falsy value
+    let cc = undefined; // falsy value
+    let dd = 4; // NOT falsy
+    let ee = 'five'; // Short-circuit에 의해 도달하지 않음
+    let ff = aa || bb || cc || dd || ee;
+    document.write(ff, '<br>');
 
 
   </script>
