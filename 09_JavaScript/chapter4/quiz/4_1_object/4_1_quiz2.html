@@ -17,7 +17,21 @@
 
 
     // 풀이2
-    
+    const person = {
+      name: '재현',
+      age: 30,
+      gender: '남자',
+      hobby: ['배드민턴', '싸이클', '스노우보드'],
+      speak: function () {
+        document.write(this.name + '이가 말을 합니다. 아아~');
+      }
+    };
+    document.write('<h1>person 객체 출력</h1>');
+    document.write(person.name, '<br>');
+    document.write(person.age, '<br>');
+    document.write(person['gender'], '<br>');
+    document.write(person['hobby'], '<br>');
+    person.speak();
   </script>
 </head>
 <body>
