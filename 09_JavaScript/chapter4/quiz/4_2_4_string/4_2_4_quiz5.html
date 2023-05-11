@@ -12,9 +12,11 @@
 
   <script>
     // 문제5
-    // 문자열 객체를 이용하여 파일 확장자를 추출해서 fileExt 변수에 저장하고,
+    // 사용자가 파일을 첨부하면
+    // 문자열 객체를 이용하여 파일 확장자를 추출한 뒤 fileExt 변수에 저장하고,
     // 이미지 파일(jpg, png, gif)이 맞는지 검사하여
     // 아닐 경우에만 alert() 창을 띄워 경고하기.
+    // (아래 샘플 코드 주석 해제하고 풀면 됩니다.)
 
     // 샘플 코드
     // const imgFileExt = ['jpg', 'png', 'gif'];
@@ -22,11 +24,19 @@
     // const fileInput = document.querySelector('input[type=file]');
     // fileInput.addEventListener('change', function () {
     //   // debugger;
-    //   console.log(fileInput);
+    //   console.log(fileInput); // input DOM
+    //   console.log(fileInput.files); // FileList 객체
     // });
 
     // 풀이5
-    
+    const imgFileExt = ['jpg', 'png', 'gif'];
+    let fileExt;
+    const fileInput = document.querySelector('input[type=file]');
+    fileInput.addEventListener('change', function () {
+      // debugger;
+      console.log(fileInput); // input DOM
+      console.log(fileInput.files); // FileList 객체
+    });
   </script>
 </body>
 </html>
