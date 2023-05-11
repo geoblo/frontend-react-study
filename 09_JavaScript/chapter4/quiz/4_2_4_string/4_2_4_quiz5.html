@@ -36,7 +36,17 @@
       // debugger;
       console.log(fileInput); // input DOM
       console.log(fileInput.files); // FileList 객체
+      console.log(fileInput.files[0]); // File 객체
+      console.log(fileInput.files[0].name); // File name
+
+      const fileName = fileInput.files[0].name;
+      fileExt = fileName.substring(fileName.lastIndexOf('.') + 1);
+      console.log(fileExt);
+
+
     });
+
+
   </script>
 </body>
 </html>
