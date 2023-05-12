@@ -125,6 +125,24 @@
       history.forward();
     }
 
+    // 4) navigator 객체
+    // 현재 방문자가 사용하는 브라우저와 운영체제 정보를 제공
+    document.write('<h2>navigator 관련 속성</h2>');
+    document.write(`userAgent: ${navigator.userAgent}`);
+
+    const info = navigator.userAgent.toLowerCase();
+    let osImg = null;
+    if (info.indexOf('windows') >= 0) {
+      osImg = 'windows.png';
+    } else if (info.indexOf('macintosh') >= 0) {
+      osImg = 'macintosh.png';
+    } else if (info.indexOf('iphone') >= 0) {
+      osImg = 'iphone.png';
+    } else if (info.indexOf('android') >= 0) {
+      osImg = 'android.png';
+    }
+
+    document.write(`<img src="images/${osImg}">`);
   </script>
 </head>
 <body>
