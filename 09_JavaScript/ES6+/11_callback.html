@@ -103,6 +103,113 @@
     // 콜백 함수안에서 다른 콜백 함수를 부르고 부르고 부르고~
     // 이렇게 하는 이유는? 비동기 코드를 동기적으로 실행시키기 위해 콜백으로 여러 코드 블록을 연결해 작성(콜백 체인)
     // 근데 이런식으로 계속 작성하다보면 과도한 함수 중첩으로 결국 콜백 지옥이 발생함
+
+    // 콜백 지옥의 예1 (step1~5까지 함수는 비동기적으로 동작함을 가정)
+    const step1 = (value, callback) => {
+      // 시간이 걸리는 실행코드가 있다고 가정(예: 네트워크 요청)
+      setTimeout(() => {
+        console.log(`${value} 값을 이용해서 무언가 수행`);
+
+        const 결과1 = '결과 데이터1';
+        callback(결과1);
+      }, 3000);
+    };
+    const step2 = (value, callback) => {
+      // 시간이 걸리는 실행코드가 있다고 가정(예: 네트워크 요청)
+      setTimeout(() => {
+        console.log(`${value} 값을 이용해서 무언가 수행`);
+
+        const 결과2 = '결과 데이터2';
+        callback(결과2);
+      }, 3000);
+    };
+    const step3 = (value, callback) => {
+      // 시간이 걸리는 실행코드가 있다고 가정(예: 네트워크 요청)
+      setTimeout(() => {
+        console.log(`${value} 값을 이용해서 무언가 수행`);
+
+        const 결과3 = '결과 데이터3';
+        callback(결과3);
+      }, 3000);
+    };
+    const step4 = (value, callback) => {
+      // 시간이 걸리는 실행코드가 있다고 가정(예: 네트워크 요청)
+      setTimeout(() => {
+        console.log(`${value} 값을 이용해서 무언가 수행`);
+
+        const 결과4 = '결과 데이터4';
+        callback(결과4);
+      }, 3000);
+    };
+    const step5 = (value, callback) => {
+      // 시간이 걸리는 실행코드가 있다고 가정(예: 네트워크 요청)
+      setTimeout(() => {
+        console.log(`${value} 값을 이용해서 무언가 수행`);
+
+        const 결과5 = '결과 데이터5';
+        callback(결과5);
+      }, 3000);
+    };
+
+    // step1~5까지 비동기 함수들이 동기적으로 실행되려면..?
+    step1('init', (value1) => {
+      step2(value1, (value2) => {
+        step3(value2, (value3) => {
+          step4(value3, (value4) => {
+            step5(value4, (value5) => {
+              // value5를 이용한 작업
+              console.log(value5);
+            })
+          })
+        })
+      })
+    });
+    // step1을 하고, step1이 완료될 때까지 기다렸다가 step2를 하고, step2가 완료될 때까지 기다렸다가 step3를 하고, 이런식으로 계속한다.
+    // 기다리는 시점마다 콜백을 중첩해야 하므로 반복하다보면 코드가 피라미드 모양으로 복잡해진다.
+
+    // 콜백 지옥의 예2
+    const loginUser = (id, password, onSuccess, onError) => {
+      // 네크워크 통신을 하는것처럼 꾸밈
+      setTimeout(() => {
+        if (id === 'goni' && password === '1234') {
+          // 로그인과 관련된 작업을 하고 서버에서 받아온 유저 정보(여기서는 그냥 id)를 콜백 함수에 전달함
+          onSuccess(id);
+        } else {
+          onError(new Error('존재하지 않음'));
+        }
+      }, 2000);
+    };
+
+    const getRoles = (userId, onSuccess, onError) => {
+      setTimeout(() => {
+        if (userId === 'goni') {
+          // 권한을 가져오는 작업을 하고 받아온 권한 정보를 콜백 함수에 전달함
+          onSuccess({ name: 'JH Kim', role: 'admin' });
+        } else {
+          onError(new Error('접근 권한 없음'));
+        }
+      }, 1000);
+    };
+
+    const id = prompt('아이디를 입력하세요.');
+    const password = prompt('비밀번호를 입력하세요.');
+
+    loginUser(id, password, userId => {
+      // 로그인에 성공했다면 매개 변수로 받아온 userId를 이용하여 권한을 받아옴
+      getRoles(userId, userInfo => {
+        // 로그인에 성공한 후 사용자의 권한까지 잘 받아왔을때
+        alert(`Welcome ${userInfo.name} (${userInfo.role})`);
+      }, error => { // 권한 얻기 에러 발생 시 호출될 콜백 함수
+        console.error(error);
+      });
+    }, error => { // 로그인 에러 발생 시 호출될 콜백 함수
+      console.error(error);
+    });
+    // 콜백 체인을 사용하지 않으면 비동기 함수들이 동기적으로 처리가 안됨
+    // 근데 콜백 체인이 반복되면 콜백 지옥이 됨
+    // 문제점
+    // 1) 가독성이 떨어진다.
+    // 2) 디버깅, 유지보수가 힘들다.
   </script>
 </head>
 <body>
