@@ -38,9 +38,72 @@
 
     // 이를 해결하기 위해 1. 콜백 또는 2. 프로미스 를 사용하면 fetch가 무언가를 반환하는 시점까지 기다리게 할 수 있다.
 
+    // 1-1. 콜백
+    // "내가 전달한 함수를 나중에 다시 불러줘(호출해줘)" = Callback
+    // 콜백은 다른 함수에 인수로 전달되는 함수를 말함
+    // 함수가 다른 함수를 호출할 수 있고 또한 함수가 완료된 후 콜백 함수를 실행할 수도 있음
+
+    // 콜백 예1: 계산기 기능과 디스플레이 기능
+    function myDisplayer(some) { // 디스플레이 함수
+      document.write(some, '<br>');
+    }
+
+    function myCalculator(num1, num2, myCallback) { // 계산기 함수
+      const sum = num1 + num2;
+      myCallback(sum);
+    }
+
+    myCalculator(5, 10, myDisplayer); // 인수로 전달하는 myDisplayer가 콜백 함수!
+    // 계산기 함수에서 디스플레이 함수를 호출
+    // 계산 기능이 끝난 다음에 디스플레이 기능을 실행
+
+    // 콜백 예2: 배열에서 양수만 뽑아 새로운 배열을 생성하는 함수 만들기
+    const myNumbers = [4, 1, -20, -7, 5, 9, -6];
+
+    function removeNeg(numbers, callback) {
+      const myArray = [];
+      for (const x of numbers) {
+        if (callback(x)) { // 전달받은 callback 함수에 x를 전달하여 true가 반환되면 새로운 배열에 추가
+          myArray.push(x);
+        }
+      }
+      return myArray;
+    }
+
+    const posNumbers = removeNeg(myNumbers, x => x >= 0); // 양수인지 테스트하는 함수를 콜백으로 전달
+    document.write(posNumbers, '<br>');
+    // myNumbers.filter(x => x >= 0);
+
+    // 콜백이 자주 쓰이는 곳은 하나의 함수가 다른 함수를 기다려야 하는 비동기 함수에서 쓰일 때
+    // 대표적인 비동기 함수 예: setTimeout(), setInterval()
+    // 콜백 예3:
+    function myMessage1() {
+      document.getElementById('demo1').innerHTML = 'I love You !!';
+    }
+    // setTimeout(myMessage1(), 3000); // 이렇게 쓰면 함수를 호출해버림(X)
+    setTimeout(myMessage1, 3000); // 함수의 이름을 넘김(O)
+
+    // 인자값을 전달 받는(즉, 매개변수가 존재하는) 함수인 경우..?
+    function myMessage2(value) {
+      document.getElementById('demo2').innerHTML = value;
+    }
+    // setTimeout(myMessage2('I love You !!!'), 3000);
+    setTimeout(() => {
+      myMessage2('I love You !!!');
+    }, 3000); // 전체 함수를 전달
+
+    // 콜백 예4:
+    setInterval(() => {
+      const d = new Date();
+      document.getElementById('demo3').innerHTML = `${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`;
+    }, 1000);
+
+    
   </script>
 </head>
 <body>
-  
+  <h1 id="demo1"></h1>
+  <h1 id="demo2"></h1>
+  <h1 id="demo3"></h1>
 </body>
 </html>
