@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 동기(synchronous)와 비동기(asynchronous)의 개념
+    // 자바스크립트는 동기적으로 작동한다.
+    // 일반적으로 각 코드 블록이 이전 블록이 끝난 이후에 순차적으로 실행
+
+    // 단순한 예
+    console.log(1);
+    setTimeout(() => { // 끝날때까지 기다리지 않고 다음으로 넘어감(비동기)
+      console.log(2);
+    }, 1000);
+    console.log(3);
+
+    // 비동기는 왜 필요할까?
+    // 어떤 명령을 실행할때 그 명령이 언제 끝날지 예측하기 어렵거나 또는 주가 되는 작업이 아닐 때 사용
+    // 웹 브라우저와 서버가 통신할 때 언제 끝날지 예측하기 힘듦(인터넷이 느리거나, 서버가 느리거나) 
+    // 통신이 끝날 때까지 아무것도 못 하고 있는 것보다는 다른 일을 하고 있다가 통신이 끝났을 때 콜백이 호출되면서 필요한 작업을 나중에 하면 훨씬 효율적
+    // 예1: 네이버에서 네트워크 탭 열고 검색창에 ㅅ만 입력하고 통신 한것들 확인(비동기 통신, 새로고침 현상 안일어남)
+    // 예2: 네이버 지도 같은 경우 모든 데이터를 가져오기 전에 화면에 먼저 표시됨
+    // 동기적으로 동작한다면 데이터를 가져오기 전까지 사용자는 빈 화면만 보고 있어야 함
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
