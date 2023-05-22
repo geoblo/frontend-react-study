@@ -55,11 +55,72 @@
     // (참고) 에러 객체의 종류
     // https://www.w3schools.com/js/js_errors.asp
 
+    // 자바스크립트는 Error, SyntaxError, ReferenceError, TypeError 등의 표준 에러 객체 생성자를 지원
+    // 이 생성자들을 이용해 에러 객체를 만들 수도 있음
+    let error = new Error('에러 발생');
+    error = new SyntaxError('문법 에러 발생');
+    error = new ReferenceError('참조 에러 발생');
+    console.log(error.name); // ReferenceError
+    console.log(error.message); // '참조 에러 발생'
+    console.log(error);
 
+    // 3. 선택적 catch 바인딩(할당) (ES2019)
+    // 에러에 대한 자세한 정보가 필요하지 않으면, catch에서 이를 생략 가능
+    try {
 
+    } catch { // <-- (err) 없이 쓸 수 있음
+      
+    }
 
+    // 4. try catch 활용 예제
+    const json = '{"name": "Goni", "age": 30}'; // 서버로부터 전달받은 데이터라 가정
 
+    // JSON.parse(): 주로 서버 등에서 전달받은 JSON 데이터를 자바스크립트 객체로 변환할 때 사용
+    const user = JSON.parse(json);
 
+    // 문자열 형태로 전달받은 json이 프로퍼티를 가진 객체가 됨
+    console.log(user);
+
+    // 잘못된 형식의 json인 경우, JSON.parse()는 에러를 만들기 때문에 스크립트가 죽음
+    const badJson = '{ bad json }';
+
+    try {
+      const user = JSON.parse(badJson); // 여기서 에러가 발생하므로
+      console.log(user); // 이 코드는 동작하지 않음
+    } catch (e) {
+      // 에러가 발생하면 제어 흐름이 catch문으로 넘어옴
+      console.log(e.name);
+      console.log(e.message);
+      // 예제에서는 간단히 로그만 찍었지만..
+      // 새로운 네트워크 요청 보내기, 사용자에게 대안 제안하기 등 구체적인 에러 핸들링을 할 수 있음
+    }
+
+    // 5. 직접 에러를 만들어 던지기
+    const shortJson = '{"age": 30}'; // 불완전한 데이터
+
+    try {
+      const user = JSON.parse(shortJson); // 에러 없음
+      console.log(user.name); // 이름 속성이 없음
+      // 아니면 네트워크에서 응답이 왔는데 nok 일 때(이때도 에러는 없지만 문제를 유발하는 상황)
+    } catch (e) {
+      console.log('실행되지 않습니다.'); // 에러가 발생하지 않아서..
+    }
+
+    // 위와 같은 상황에서 에러는 없지만 에러 처리로 통합하고 싶을때
+    // throw 연산자로 에러 던지기
+    // throw <error object>;
+    // 위 예제에 throw 연산자 적용
+    try {
+      const user = JSON.parse(shortJson); // 에러 없음
+      if (!user.name) {
+        throw new SyntaxError('불완전한 데이터: 이름 없음'); // 에러 만들어서 던짐
+      }
+
+      console.log(user.name); // 이름 속성이 없음
+      // 아니면 네트워크에서 응답이 왔는데 nok 일 때(이때도 에러는 없지만 문제를 유발하는 상황)
+    } catch (e) {
+      console.error(e);
+    }
   </script>
 </head>
 <body>
