@@ -19,8 +19,12 @@ function PropsUse() {
         // props로 다른 컴포넌트를 넘기는 것도 가능
         width={2560}
         height={1440}
-        header={<Header />}
-        footer={<Footer />}
+        header={
+          <Header title="고니의 블로그입니다." />
+        }
+        footer={
+          <Footer />
+        }
       />
     </>
   );
