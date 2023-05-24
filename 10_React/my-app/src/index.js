@@ -7,6 +7,8 @@ import JsxUse from './chapter3/3.4/JsxUse';
 import Library from './chapter3/Library';
 import Clock from './chapter4/Clock';
 import PropsUse from './chapter5/5.3/PropsUse';
+import Comment from './chapter5/Comment';
+import CommentList from './chapter5/CommentList';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // Root DOM Node에 렌더링 하도록 하는 함수
@@ -32,7 +34,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 // 5장 예제
 root.render(
-  <PropsUse />
+  // <PropsUse />
+  <CommentList />
 );
 
 // If you want to start measuring performance in your app, pass a function
