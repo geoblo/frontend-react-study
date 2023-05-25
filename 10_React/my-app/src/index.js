@@ -34,8 +34,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 // 5장 예제
 root.render(
-  // <PropsUse />
-  <CommentList />
+  <PropsUse />
+  // <CommentList />
 );
 
 // If you want to start measuring performance in your app, pass a function
