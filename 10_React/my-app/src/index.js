@@ -14,6 +14,7 @@ import Counter from './chapter7/7.2/Counter';
 import SetStateMerge from './chapter7/7.2/SetStateMerge';
 import CounterEffect from './chapter7/7.3/ex1/CounterEffect';
 import EffectSummary from './chapter7/7.3/ex3/EffectSummary';
+import EffectContainer from './chapter7/7.3/ex3/EffectContainer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // Root DOM Node에 렌더링 하도록 하는 함수
@@ -36,7 +37,8 @@ root.render(
   // <Counter />
   // <SetStateMerge />
   // <CounterEffect />
-  <EffectSummary />
+  // <EffectSummary />
+  <EffectContainer />
 );
 
 // 4장 예제
