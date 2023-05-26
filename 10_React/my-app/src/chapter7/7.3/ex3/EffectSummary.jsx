@@ -8,7 +8,7 @@ function EffectSummary() {
   // useEffect는 마운트 시에는 무조건 실행됨!!
   // useEffect의 return 되는 함수는 언마운트 시에는 무조건 실행됨!!
 
-  // 렌더링 될때마다 매번 실행됨
+  // 렌더링 될때마다(마운트 + 업데이트) 매번 실행됨
   useEffect(() => {
     console.log('나는 매번 실행됨');
 
