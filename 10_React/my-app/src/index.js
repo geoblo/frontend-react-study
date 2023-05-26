@@ -13,6 +13,7 @@ import NotificationList from './chapter6/NotificationList';
 import Counter from './chapter7/7.2/Counter';
 import SetStateMerge from './chapter7/7.2/SetStateMerge';
 import CounterEffect from './chapter7/7.3/ex1/CounterEffect';
+import EffectSummary from './chapter7/7.3/ex3/EffectSummary';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // Root DOM Node에 렌더링 하도록 하는 함수
@@ -23,23 +24,19 @@ root.render(
   // 3장 예제
   // <JsxUse />
   // <Library />
-);
-// 5장 예제
-// root.render(
-//   <PropsUse />
-//   // <CommentList />
-// );
 
-// 6장 예제
-// root.render(
-//   <NotificationList />
-// );
+  // 5장 예제
+  // <PropsUse />
+  // <CommentList />
 
-// 7장 예제
-root.render(
+  // 6장 예제
+  // <NotificationList />
+  
+  // 7장 예제
   // <Counter />
   // <SetStateMerge />
-  <CounterEffect />
+  // <CounterEffect />
+  <EffectSummary />
 );
 
 // 4장 예제
@@ -50,8 +47,6 @@ root.render(
 //     <Clock />
 //   );
 // }, 1000);
-
-
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
