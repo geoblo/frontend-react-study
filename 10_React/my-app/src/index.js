@@ -21,10 +21,17 @@ import MyButton from './chapter8/8.2/MyButton';
 import ConfirmButton from './chapter8/ConfirmButton';
 import Greeting from './chapter9/9.1/Greeting';
 import LoginControl from './chapter9/9.2/LoginControl';
+import Mailbox from './chapter9/9.3/Mailbox';
+import LoginControlRefactoring from './chapter9/9.3/LoginControlRefactoring';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // Root DOM Node에 렌더링 하도록 하는 함수
 // 처음으로 렌더링할 컴포넌트를 지정하는데 App 컴포넌트가 기본적으로 들어가있음
+
+
+// 9장 예제
+const messages = ['React', 'Re: React', 'Re:Re: React'];
+
 root.render(
   // <App />
 
@@ -54,7 +61,9 @@ root.render(
 
   // 9장 예제
   // <Greeting isLoggedIn={true} />
-  <LoginControl />
+  // <LoginControl />
+  // <Mailbox unreadMessages={messages} />
+  <LoginControlRefactoring />
 );
 
 // 4장 예제
