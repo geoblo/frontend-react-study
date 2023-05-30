@@ -23,6 +23,8 @@ import Greeting from './chapter9/9.1/Greeting';
 import LoginControl from './chapter9/9.2/LoginControl';
 import Mailbox from './chapter9/9.3/Mailbox';
 import LoginControlRefactoring from './chapter9/9.3/LoginControlRefactoring';
+import MainPage from './chapter9/9.4/MainPage';
+import LandingPage from './chapter9/LandingPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // Root DOM Node에 렌더링 하도록 하는 함수
@@ -63,7 +65,9 @@ root.render(
   // <Greeting isLoggedIn={true} />
   // <LoginControl />
   // <Mailbox unreadMessages={messages} />
-  <LoginControlRefactoring />
+  // <LoginControlRefactoring />
+  // <MainPage />
+  <LandingPage />
 );
 
 // 4장 예제
