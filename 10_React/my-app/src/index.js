@@ -25,6 +25,9 @@ import Mailbox from './chapter9/9.3/Mailbox';
 import LoginControlRefactoring from './chapter9/9.3/LoginControlRefactoring';
 import MainPage from './chapter9/9.4/MainPage';
 import LandingPage from './chapter9/LandingPage';
+import NumberList from './chpater10/10.1/NumberList';
+import ListKey from './chpater10/10.2/ListKey';
+import AttendanceBook from './chpater10/AttendanceBook';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // Root DOM Node에 렌더링 하도록 하는 함수
@@ -67,7 +70,12 @@ root.render(
   // <Mailbox unreadMessages={messages} />
   // <LoginControlRefactoring />
   // <MainPage />
-  <LandingPage />
+  // <LandingPage />
+
+  // 10장 예제
+  // <NumberList numbers={[1, 2, 3, 4, 5]} />
+  // <ListKey />
+  <AttendanceBook />
 );
 
 // 4장 예제

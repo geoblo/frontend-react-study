@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Toolbar from './Toolbar';
 
 function LandingPage(props) {
   // 사용자의 로그인 여부를 상태로 관리
