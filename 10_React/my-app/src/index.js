@@ -35,6 +35,7 @@ import TextInputWithFocusButton from './chapter7/7.6/TextInputWithFocusButton';
 import FileInput from './chapter11/11.3/FileInput';
 import ComponentVariable from './chapter7/7.6/ComponentVariable';
 import Reservation from './chapter11/11.4/Reservation';
+import ReservationRefactoring from './chapter11/11.4/ReservationRefactoring';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // Root DOM Node에 렌더링 하도록 하는 함수
@@ -91,7 +92,8 @@ root.render(
   // <EssayForm />
   // <FlavorForm />
   // <FileInput />
-  <Reservation />
+  // <Reservation />
+  <ReservationRefactoring />
 );
 
 // 4장 예제
