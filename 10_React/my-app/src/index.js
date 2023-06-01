@@ -36,6 +36,7 @@ import FileInput from './chapter11/11.3/FileInput';
 import ComponentVariable from './chapter7/7.6/ComponentVariable';
 import Reservation from './chapter11/11.4/Reservation';
 import ReservationRefactoring from './chapter11/11.4/ReservationRefactoring';
+import SignUp from './chapter11/SignUp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // Root DOM Node에 렌더링 하도록 하는 함수
@@ -93,7 +94,8 @@ root.render(
   // <FlavorForm />
   // <FileInput />
   // <Reservation />
-  <ReservationRefactoring />
+  // <ReservationRefactoring />
+  <SignUp />
 );
 
 // 4장 예제
