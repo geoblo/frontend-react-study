@@ -5,7 +5,7 @@ function UnitCounter(props) {
 
   return (
     <>
-      <button type='button' onClick={() => onLengthChange(length - 1)}>-</button>
+      <button type='button' onClick={() => onLengthChange(Math.max(length - 1, 0))}>-</button>
       {length}
       <button type='button' onClick={() => onLengthChange(length + 1)}>+</button>
     </>
