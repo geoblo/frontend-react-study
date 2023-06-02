@@ -43,6 +43,7 @@ import SplitPaneSection from './chapter13/13.1.1.2/SplitPaneSection';
 import DialogContainer from './chapter13/13.1.2/DialogContainer';
 import SingUpDialog from './chapter13/13.1.3/SingUpDialog';
 import ProfileCard from './chapter13/ProfileCard';
+import DarkOrLight from './chapter14/DarkOrLight';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // Root DOM Node에 렌더링 하도록 하는 함수
@@ -111,7 +112,10 @@ root.render(
   // <SplitPaneSection />
   // <DialogContainer />
   // <SingUpDialog />
-  <ProfileCard />
+  // <ProfileCard />
+
+  // 14장 예제
+  <DarkOrLight />
 );
 
 // 4장 예제
