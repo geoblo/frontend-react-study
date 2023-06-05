@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { MdAdd as AddIcon } from "react-icons/md";
+// Tip: as를 사용하여 별칭을 붙여 사용하면 추후 아이콘 바꿀때 한곳만 바꾸면 되서 편함!
 
 const TodoInsertWrapper = styled.form`
   display: flex;
@@ -31,6 +33,11 @@ const StyledButton = styled.button`
   display: flex;
   align-items: center;
   cursor: pointer;
+  transition: 0.2s background ease-in;
+
+  &:hover {
+    background: #adb5bd;
+  }
 `;
 
 // 새로운 항목을 입력하고 추가할 수 있는 컴포넌트
@@ -39,7 +46,9 @@ function TodoInsert(props) {
   return (
     <TodoInsertWrapper>
       <StyledInput type='text' placeholder='할 일을 입력하세요.' />
-      <StyledButton type='submit' />
+      <StyledButton type='submit'>
+        <AddIcon />
+      </StyledButton>
     </TodoInsertWrapper>
   );
 }
