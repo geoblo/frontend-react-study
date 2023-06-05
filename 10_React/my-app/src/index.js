@@ -45,6 +45,7 @@ import SingUpDialog from './chapter13/13.1.3/SingUpDialog';
 import ProfileCard from './chapter13/ProfileCard';
 import DarkOrLight from './chapter14/DarkOrLight';
 import StyledPage from './chapter15/StyledPage';
+import ThemeApp from './chapter15/theme/ThemeApp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // Root DOM Node에 렌더링 하도록 하는 함수
@@ -119,7 +120,8 @@ root.render(
   // <DarkOrLight />
 
   // 15장 예제
-  <StyledPage />
+  // <StyledPage />
+  <ThemeApp />
 );
 
 // 4장 예제
