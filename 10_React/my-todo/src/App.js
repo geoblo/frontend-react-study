@@ -1,6 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 import { Reset } from "styled-reset";
 import reset from "styled-reset";
+import TodoTemplate from "./components/TodoTemplate";
+import TodoInsert from "./components/TodoInsert";
 
 // 패키지 설치
 // npm install styled-components styled-reset react-icons
@@ -27,6 +29,9 @@ function App() {
     <>
       {/* <Reset /> */}
       <GlobalStyle />
+      <TodoTemplate>
+        <TodoInsert />
+      </TodoTemplate>
     </>
   );
 }

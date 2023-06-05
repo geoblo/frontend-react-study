@@ -19,9 +19,20 @@ const TodoTemplateWrapper = styled.div`
     justify-content: center;
     align-items: center;
   }
+
+  .content {
+    background: white;
+  }
 `;
 
 // const AppTitle = styled.div`
+//   background: #22b8cf;
+//   color: white;
+//   height: 4rem;
+//   font-size: 1.5rem;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
 // `;
 
 // 화면을 가운데 정렬하고, 앱 타이틀을 보여주는 컴포넌트
@@ -31,8 +42,8 @@ function TodoTemplate(props) {
 
   return (
     <TodoTemplateWrapper>
-      <div>일정 관리</div>
-      <div>{children}</div>
+      <div className='app-title'>일정 관리</div>
+      <div className='content'>{children}</div>
     </TodoTemplateWrapper>
   );
 }
