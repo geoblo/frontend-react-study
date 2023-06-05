@@ -6,7 +6,9 @@ const Wrapper = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   padding: 1rem;
-  background-color: lightgray;
+  /* background-color: lightgray; */
+  /* 테마 사용해보기 */
+  background-color: ${props => props.theme.grayBg};
 `;
 
 const Block = styled.div`

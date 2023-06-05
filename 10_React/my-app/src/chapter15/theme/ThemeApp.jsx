@@ -33,7 +33,7 @@ const theme = {
 
 function ThemeApp(props) {
   return (
-    <ThemeProvider theme={{}}>
+    <ThemeProvider theme={theme}>
       <Blocks />
     </ThemeProvider>
   );
