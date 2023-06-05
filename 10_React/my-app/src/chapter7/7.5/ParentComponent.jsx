@@ -29,11 +29,7 @@ function ParentComponent(props) {
     <>
       <p>총 {count}번 카운트</p>
       <button type='button' onClick={handleClick}>
-        useCallback 미사용
-      </button>
-      <br />
-      <button type='button' onClick={handleClickCallback}>
-        useCallback 사용
+        카운트 증가(재렌더링 발생)
       </button>
 
       {/* 자식 컴포넌트에 props로 함수를 전달 후 차이점 확인 */}
