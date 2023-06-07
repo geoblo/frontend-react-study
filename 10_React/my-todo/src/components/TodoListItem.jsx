@@ -52,6 +52,8 @@ function TodoListItem(props) {
   // todo로 먼저 한번 분해해서 받았을 경우
   // const { id, text, checked } = todo;
 
+  console.log(id, text);
+
   return (
     <TodoListItemWrapper>
       <Checkbox checked={checked}
@@ -69,4 +71,5 @@ function TodoListItem(props) {
   );
 }
 
-export default TodoListItem;
+// export default TodoListItem;
+export default React.memo(TodoListItem);
