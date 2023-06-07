@@ -6,6 +6,7 @@ import GamePage from './GamePage';
 import HotGamePage from './HotGamePage';
 import NewGamePage from './NewGamePage';
 import AboutPage from './AboutPage';
+import NoMathchPage from './NoMatchPage';
 
 // 0. react-router-dom 설치하기
 // npm install react-router-dom
@@ -79,6 +80,9 @@ function SimpleRouter(props) {
         쿼리스트링 예시: /articles?**page=1&keyword=react&page=3 (네이버 검색) */}
         <Route path='/about' element={<AboutPage />} />
 
+        {/* 위에 설정한 라우팅 경로 이외에 경우 */}
+        {/* *의 의미는 match anything */}
+        <Route path='*' element={<NoMathchPage />} />
       </Routes>
     </BrowserRouter>
   );
