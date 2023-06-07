@@ -5,6 +5,7 @@ import PlacePage from './PlacePage';
 import GamePage from './GamePage';
 import HotGamePage from './HotGamePage';
 import NewGamePage from './NewGamePage';
+import AboutPage from './AboutPage';
 
 // 0. react-router-dom 설치하기
 // npm install react-router-dom
@@ -75,8 +76,8 @@ function SimpleRouter(props) {
         쿼리스트링(Querystring)은 키워드 검색, 페이지네이션, 정렬 방식 등 데이터 조회에 필요한 옵션을 전달할 때 사용 
         (꼭 위와 같이 쓰라고 정해진 규칙이 있는것은 아님) 
         URL 파라미터 예시: https://vibe.naver.com/album/9732422 (네이버 바이브)
-        쿼리스트링 예시: /articles?**page=1&keyword=react (네이버 검색) */}
-
+        쿼리스트링 예시: /articles?**page=1&keyword=react&page=3 (네이버 검색) */}
+        <Route path='/about' element={<AboutPage />} />
 
       </Routes>
     </BrowserRouter>
