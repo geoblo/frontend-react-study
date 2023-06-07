@@ -1,10 +1,12 @@
+import { useCallback, useEffect, useRef, useState } from "react";
 import { createGlobalStyle } from "styled-components";
 import { Reset } from "styled-reset";
 import reset from "styled-reset";
+import { v4 as uuidv4 } from "uuid";
+
 import TodoTemplate from "./components/TodoTemplate";
 import TodoInsert from "./components/TodoInsert";
 import TodoList from "./components/TodoList";
-import { useCallback, useRef, useState } from "react";
 
 // 패키지 설치
 // npm install styled-components styled-reset react-icons
@@ -31,33 +33,46 @@ function App() {
   // id, 내용, 완료 여부
   // TodoList에 props로 전달
   const [todos, setTodos] = useState([
-    {
-      id: 1,
-      text: '수업 교안 작성하기',
-      checked: true
-    },
-    {
-      id: 2,
-      text: '시험 채점하기',
-      checked: true
-    },
-    {
-      id: 3,
-      text: '단계별 실습 예제 만들기',
-      checked: false
-    },
+    // {
+    //   id: 1,
+    //   text: '수업 교안 작성하기',
+    //   checked: true
+    // },
+    // {
+    //   id: 2,
+    //   text: '시험 채점하기',
+    //   checked: true
+    // },
+    // {
+    //   id: 3,
+    //   text: '단계별 실습 예제 만들기',
+    //   checked: false
+    // },
   ]);
+
+  // 로컬 스토리지에서 가져오기
+  // 활용 예: 장바구니, 아이디 기억하기, 최근 본 상품 등
+  useEffect(() => {
+    const dbTodos = JSON.parse(localStorage.getItem('todos')) || [];
+    setTodos(dbTodos);
+  }, []);
+
+  // 로컬 스토리지에 저장(주의: DB가 아님, DB처럼 쓰면 안됨!!)
+  // 추가, 수정, 삭제 각 함수에 넣어도 되지만, useEffect()를 활용하면 한번에 처리 가능
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
 
   // 새 객체를 만들 때마다 id값에 1씩 더해주어야 하는데 useRef()를 사용하여 변수 생성
   // Quiz: state가 아닌 이유? id값은 렌더링되는 정보가 아니기 때문(화면에 보이지도 않고, 이 값이 바뀐다고 해서 컴포넌트가 재렌더링 될 필요도 없음)
   // 단순히 새로운 항목을 만들 때 참조되는 값임
   const nextId = useRef(4);
-  console.log(nextId);
 
   // props로 전달해야 할 함수를 만들 때는 useCallback()을 사용해본다!
   const handleInsert = useCallback((text) => {
     const todo = {
-      id: nextId.current,
+      // id: nextId.current,
+      id: uuidv4(),
       text,
       checked: false
     };
