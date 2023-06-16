@@ -50,11 +50,16 @@ function TodoInsert({ onInsert }) {
   };
 
   const handleSubmit = (e) => {
-    onInsert(value);
-    setValue(''); // value값 초기화
-
     // submit 이벤트가 발생시키는 새로고침을 방지
     e.preventDefault();
+
+    if (!value) {
+      alert('할 일을 입력하세요!');
+      return; // 함수 종료
+    }
+
+    onInsert(value);
+    setValue(''); // value값 초기화
   };
 
   return (
