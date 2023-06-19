@@ -45,6 +45,25 @@ const CategoriesBlock = styled.div`
   }
 `;
 
+// Link 대신 NavLink 사용해보기
+const Category = styled(NavLink)`
+  font-size: 1.125rem;
+  white-space: pre;
+  text-decoration: none;
+  color: inherit;
+  padding-bottom: 0.25rem;
+  cursor: pointer;
+
+  &:hover {
+    color: #495057;
+  }
+
+  & + & {
+    margin-left: 1rem;
+  }
+`;
+
+
 function Categories(props) {
   return (
     <div>
