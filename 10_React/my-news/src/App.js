@@ -5,7 +5,7 @@ import NewsPage from "./pages/NewsPage";
 function App() {
   return (
     // <>
-    //   <NewsList />
+      // <NewsList />
     // </>
 
     <Routes>
