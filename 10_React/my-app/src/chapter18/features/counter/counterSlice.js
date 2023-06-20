@@ -26,12 +26,18 @@ export const counterSlice = createSlice({
     decrement: (state) => {
       state.value -= 1;
     },
+    incrementByAmount: (state, action) => { // 두번째 파라미터: action 객체 = { type: 발생한 액션의 타입, payload: 화물, 전달 데이터 }
+      console.log(action);
+      state.value += action.payload;
+    }
   },
 });
 
+console.log(counterSlice);
+
 // 각 리듀서에 대한 액션 생성 함수들이 객체 형태로 들어있음
 // 액션 생성 함수를 사용하면 해당 액션 객체가 만들어짐
-export const { increment, decrement } = counterSlice.actions;
+export const { increment, decrement, incrementByAmount } = counterSlice.actions;
 
 // 위에서 정의한 리듀서 함수들
 export default counterSlice.reducer;
