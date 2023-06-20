@@ -1,4 +1,5 @@
 import { configureStore, createStore } from "@reduxjs/toolkit";
+import counterReducer from "../features/counter/counterSlice";
 
 // 1. Redux Store 만들기
 // 전역 state를 보관하는 저장소
@@ -7,7 +8,9 @@ import { configureStore, createStore } from "@reduxjs/toolkit";
 // (Redux DevTools는 크롬 웹 스토어에서 따로 설치!)
 export const store = configureStore({
   reducer: {
-
+    // 4. Redux Store에 Slice Reducers를 추가하기
+    // Slice Reducers를 Store에 등록을 해야 컴포넌트들이 전역 state를 사용 가능
+    counter: counterReducer,
   }
 });
 
