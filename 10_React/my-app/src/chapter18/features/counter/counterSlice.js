@@ -39,6 +39,9 @@ console.log(counterSlice);
 // 액션 생성 함수를 사용하면 해당 액션 객체가 만들어짐
 export const { increment, decrement, incrementByAmount } = counterSlice.actions;
 
+// 선택자 함수
+export const selectCount = (state) => state.counter.value;
+
 // 위에서 정의한 리듀서 함수들
 export default counterSlice.reducer;
 

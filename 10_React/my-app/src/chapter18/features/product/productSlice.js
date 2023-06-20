@@ -8,9 +8,10 @@ export const productSlice = createSlice({
   name: 'product',
   initialState,
   reducers: {
-    addToProductList: (state, { payload: product }) => {
+    addToProductList: (state, { payload: productName }) => {
+      console.log(productName);
       // state.productList.push(action.payload);
-      state.productList.push(product);
+      state.productList.push(productName);
     }
   },
 });
