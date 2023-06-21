@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
+import { Col, Container, Row } from 'react-bootstrap';
 
 // 리액트(JS)에서 이미지 파일 import 하는법
 import yonexImg from "../images/yonex.jpg";
-import { Col, Container, Row } from 'react-bootstrap';
+
+// 서버에서 받아온 데이터라고 가정
+import data from "../data.json";
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllProducts, selectProductList } from '../features/product/productSlice';
 
 const MainBackground = styled.div`
   height: 500px;
@@ -14,6 +19,18 @@ const MainBackground = styled.div`
 `;
 
 function Main(props) {
+  const dispatch = useDispatch();
+  const productList = useSelector(selectProductList);
+
+  // 처음 마운트 됐을 때 서버에 상품 목록 데이터를 요청하고
+  // 그 결과를 리덕스 스토어에 전역 상태로 저장
+  useEffect(() => {
+    // 서버에 데이터 요청했다고 가정
+    // ... api call ...
+    dispatch(getAllProducts(data));
+
+  }, []);
+
   return (
     <>
       {/* 메인 이미지 섹션 */}
@@ -43,6 +60,12 @@ function Main(props) {
               <h4>상품명</h4>
               <p>상품가격</p>
             </Col>
+
+            {/* Quiz:
+              1) 반복적인 상품 아이템을 src/components/ProductListItem 컴포넌트로 만들기
+              2) productList 배열을 반복하여 ProductListItem을 렌더링하기
+              3) 상품 정보를 props로 넘겨서 데이터 바인딩하기
+            */}
           </Row>
         </Container>
       </section>
