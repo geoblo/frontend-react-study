@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // bootstrap CSS 추가
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { Route, Routes } from "react-router-dom";
 import Header from "./pages/Header";
+import Main from "./pages/Main";
 
 // 글로벌(공통) 스타일 설정
 const GlobalStyle = createGlobalStyle`
@@ -52,8 +53,8 @@ function App() {
       {/* 기본/라우팅 설정 */}
       <Routes>
         <Route path="/" element={<Header />}>
-          {/* <Route path="/cart" element={undefined} /> */}
-          
+          {/* index: index route(여기서는 default child route) */}
+          <Route index element={<Main />} />
         </Route>
       </Routes>
     </>
