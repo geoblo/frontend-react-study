@@ -9,6 +9,7 @@ import yonexImg from "../images/yonex.jpg";
 import data from "../data.json";
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllProducts, selectProductList } from '../features/product/productSlice';
+import ProductListItem from '../components/ProductListItem';
 
 const MainBackground = styled.div`
   height: 500px;
@@ -45,7 +46,7 @@ function Main(props) {
           <Row>
             {/* 부트스트랩을 이용한 반응형 작업 */}
             {/* md >= 768px 이상에서 전체 12등분중 4:4:4로 보여줌 */}
-            <Col md={4}>
+            {/* <Col md={4}>
               <img src="https://www.yonexmall.com/shop/data/goods/1645767865278s0.png" width="80%" />
               <h4>상품명</h4>
               <p>상품가격</p>
@@ -59,13 +60,16 @@ function Main(props) {
               <img src="https://www.yonexmall.com/shop/data/goods/1667190100104s0.png" width="80%" />
               <h4>상품명</h4>
               <p>상품가격</p>
-            </Col>
+            </Col> */}
 
             {/* Quiz:
               1) 반복적인 상품 아이템을 src/components/ProductListItem 컴포넌트로 만들기
               2) productList 배열을 반복하여 ProductListItem을 렌더링하기
               3) 상품 정보를 props로 넘겨서 데이터 바인딩하기
             */}
+            {productList.map((product) => {
+              return <ProductListItem key={product.id} product={product} />;
+            })}
           </Row>
         </Container>
       </section>
