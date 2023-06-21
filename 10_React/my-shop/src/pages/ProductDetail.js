@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Alert, Button, Col, Container, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 
@@ -12,6 +12,8 @@ function ProductDetail() {
   const { productId } = useParams();
   const dispatch = useDispatch();
   const product = useSelector(selectSelectedProduct);
+
+  const [showInfo, setShowInfo] = useState(true); // Info Alert창 상태
 
   // 숫자 포맷 적용
   const formatter = new Intl.NumberFormat('ko-KR', { style: 'currency', currency: 'KRW' });
@@ -30,6 +32,16 @@ function ProductDetail() {
 
   }, []);
 
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setShowInfo(false);
+    }, 3000);
+    // 불필요하게 타이머가 계속 생기는 것을 정리
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, []);
+
   if (!product) {
     // return null; // 아무것도 렌더링하지 않음
     return <div>상품이 존재하지 않습니다.</div>;
@@ -40,9 +52,11 @@ function ProductDetail() {
       {/* Quiz: Alert을 띄우고 3초 뒤에 사라지게 만들기 
         (힌트: 처음 렌더링 됐을때 setTimeout으로 타이머 설정)
       */}
-      <Alert variant="info">
-        현재 34명이 이 상품을 보고 있습니다.
-      </Alert>
+      {showInfo && 
+        <Alert variant="info">
+          현재 34명이 이 상품을 보고 있습니다.
+        </Alert>
+      }
 
       <Row>
         {/* Quiz: 데이터 바인딩 작업 */}
