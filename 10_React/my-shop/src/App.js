@@ -1,7 +1,61 @@
+import { createGlobalStyle } from "styled-components";
+
+import 'bootstrap/dist/css/bootstrap.min.css'; // bootstrap CSS 추가
+import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import { Route, Routes } from "react-router-dom";
+import Header from "./pages/Header";
+
+// 글로벌(공통) 스타일 설정
+const GlobalStyle = createGlobalStyle`
+  body {
+    box-sizing: border-box;
+  }
+
+  #root {
+    text-align: center;
+  }
+
+  * {
+    box-sizing: inherit;
+  }
+
+  .cursor-pointer {
+    cursor: pointer;
+  }
+`;
 
 function App() {
   return (
     <>
+      <GlobalStyle />
+      {/* 부트스트랩 연습 */}
+      {/* 1) 리액트 부트스트랩 */}
+      {/* <Button variant="primary">Primary</Button> */}
+      {/* 2) 기존 부트스트랩 */}
+      {/* <button type="button" className="btn btn-primary">Primary</button> */}
+
+      {/* 헤더 영역: 상단 내비게이션 바 */}
+      {/* <header>
+        <Navbar bg="dark" data-bs-theme="dark">
+          <Container>
+            <Navbar.Brand href="#">고니네 샵</Navbar.Brand>
+            <Nav className="me-auto">
+              <Nav.Link>홈</Nav.Link>
+              <Nav.Link>장바구니</Nav.Link>
+            </Nav>
+          </Container>
+        </Navbar>
+      </header> */}
+      {/* Quiz: Header 컴포넌트 추출 및 Outlet을 활용하여 라우팅 구성해보기 */}
+      {/* src/pages/Header.js */}
+
+      {/* 기본/라우팅 설정 */}
+      <Routes>
+        <Route path="/" element={<Header />}>
+          {/* <Route path="/cart" element={undefined} /> */}
+          
+        </Route>
+      </Routes>
     </>
   );
 }
