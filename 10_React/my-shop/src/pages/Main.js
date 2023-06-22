@@ -1,15 +1,17 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { Button, Col, Container, Row } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import axios from "axios";
 
 // 리액트(JS)에서 이미지 파일 import 하는법
 import yonexImg from "../images/yonex.jpg";
 
 // 서버에서 받아온 데이터라고 가정
 import data from "../data.json";
-import { useDispatch, useSelector } from 'react-redux';
-import { getAllProducts, selectProductList } from '../features/product/productSlice';
+import { getAllProducts, getMoreProducts, selectProductList } from '../features/product/productSlice';
 import ProductListItem from '../components/ProductListItem';
+import { getProducts } from '../api/productAPI';
 
 const MainBackground = styled.div`
   height: 500px;
@@ -29,8 +31,14 @@ function Main(props) {
     // 서버에 데이터 요청했다고 가정
     // ... api call ...
     dispatch(getAllProducts(data));
-
   }, []);
+
+  const handleGetMoreProducts = async () => {
+    const result = await getProducts();
+    if (!result) return; // 결과값이 없으면 함수 종료
+
+    dispatch(getMoreProducts(result));
+  };
 
   return (
     <>
@@ -74,7 +82,25 @@ function Main(props) {
         </Container>
 
         {/* 상품 더보기 버튼 */}
-        <Button variant='secondary' className='mb-4'>더보기</Button>
+        <Button variant='secondary' className='mb-4'
+          onClick={() => {
+            axios.get('https://my-json-server.typicode.com/geoblo/db-shop/products')
+              .then((response) => {
+                // console.log(response.data);
+                dispatch(getMoreProducts(response.data));
+              })
+              .catch((error) => {
+                console.error(error);
+              });
+          }}
+        >
+          더보기
+        </Button>
+
+        {/* 위 HTTP 요청 코드를 함수로 만들어서 api폴더로 추출하고, async/await로 바꾸기 */}
+        <Button variant='secondary' className='mb-4' onClick={handleGetMoreProducts}>
+          더보기
+        </Button>
       </section>
     </>
   );
