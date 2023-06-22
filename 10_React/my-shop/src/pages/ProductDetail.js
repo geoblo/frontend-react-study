@@ -1,11 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import { Alert, Button, Col, Container, Row } from 'react-bootstrap';
+import { Alert, Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
+import styled, { keyframes } from "styled-components";
 
 // 서버에서 받아온 데이터라고 가정
 import data from "../data.json";
 import { useDispatch, useSelector } from 'react-redux';
 import { getSelectedProduct, selectSelectedProduct } from '../features/product/productSlice';
+import { toast } from 'react-toastify';
+
+// 스타일드 컴포넌트를 이용한 애니메이션 속성 적용
+const highlight = keyframes`
+  from { background-color: #cff4fc; }
+  50% { background-color: #e8f7fa; }
+  to { background-color: #cff4fc; }
+`;
+
+const StyledAlert = styled(Alert)`
+  animation: ${highlight} 1s linear infinite;
+`;
 
 function ProductDetail() {
   // URL 파라미터 가져오기
@@ -14,6 +27,7 @@ function ProductDetail() {
   const product = useSelector(selectSelectedProduct);
 
   const [showInfo, setShowInfo] = useState(true); // Info Alert창 상태
+  const [orderCount, setOrderCount] = useState(1); // 주문수량 상태
 
   // 숫자 포맷 적용
   const formatter = new Intl.NumberFormat('ko-KR', { style: 'currency', currency: 'KRW' });
@@ -28,8 +42,6 @@ function ProductDetail() {
     });
     if (!foundProduct) return;
     dispatch(getSelectedProduct(foundProduct));
-
-
   }, []);
 
   useEffect(() => {
@@ -42,6 +54,15 @@ function ProductDetail() {
     };
   }, []);
 
+  const handleChangeOrderCount = (e) => {
+    if (isNaN(e.target.value)) {
+      toast.error('💯숫자만 입력하세요!');
+      return;
+    }
+
+    setOrderCount(Number(e.target.value));
+  };
+
   if (!product) {
     // return null; // 아무것도 렌더링하지 않음
     return <div>상품이 존재하지 않습니다.</div>;
@@ -53,9 +74,9 @@ function ProductDetail() {
         (힌트: 처음 렌더링 됐을때 setTimeout으로 타이머 설정)
       */}
       {showInfo && 
-        <Alert variant="info">
+        <StyledAlert variant="info" onClose={() => setShowInfo(false)} dismissible>
           현재 34명이 이 상품을 보고 있습니다.
-        </Alert>
+        </StyledAlert>
       }
 
       <Row>
@@ -67,6 +88,12 @@ function ProductDetail() {
           <h4 className="pt-5">{product?.title}</h4>
           <p>{product?.content}</p>
           <p>{formatter.format(product?.price)}원</p>
+
+          {/* 주문수량 입력 UI */}
+          <Col md={4} className='m-auto mb-3'>
+            <Form.Control type="text" value={orderCount} onChange={handleChangeOrderCount} />
+          </Col>
+
           <Button variant='primary'>주문하기</Button>
         </Col>
       </Row>
