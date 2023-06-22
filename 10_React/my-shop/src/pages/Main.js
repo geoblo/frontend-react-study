@@ -9,7 +9,7 @@ import yonexImg from "../images/yonex.jpg";
 
 // 서버에서 받아온 데이터라고 가정
 import data from "../data.json";
-import { getAllProducts, getMoreProducts, selectProductList } from '../features/product/productSlice';
+import { getAllProducts, getMoreProducts, getMoreProductsAsync, selectProductList, selectStatus } from '../features/product/productSlice';
 import ProductListItem from '../components/ProductListItem';
 import { getProducts } from '../api/productAPI';
 
@@ -24,6 +24,7 @@ const MainBackground = styled.div`
 function Main(props) {
   const dispatch = useDispatch();
   const productList = useSelector(selectProductList);
+  const status = useSelector(selectStatus); // API 요청 상태(로딩 상태)
 
   // 처음 마운트 됐을 때 서버에 상품 목록 데이터를 요청하고
   // 그 결과를 리덕스 스토어에 전역 상태로 저장
@@ -38,6 +39,10 @@ function Main(props) {
     if (!result) return; // 결과값이 없으면 함수 종료
 
     dispatch(getMoreProducts(result));
+  };
+
+  const handleGetMoreProductsAsync = () => {
+    dispatch(getMoreProductsAsync());
   };
 
   return (
@@ -100,6 +105,11 @@ function Main(props) {
         {/* 위 HTTP 요청 코드를 함수로 만들어서 api폴더로 추출하고, async/await로 바꾸기 */}
         <Button variant='secondary' className='mb-4' onClick={handleGetMoreProducts}>
           더보기
+        </Button>
+
+        {/* thunk를 이용한 비동기 작업 처리하기 */}
+        <Button variant='secondary' className='mb-4' onClick={handleGetMoreProductsAsync}>
+          더보기 {status}
         </Button>
       </section>
     </>
