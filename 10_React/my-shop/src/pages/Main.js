@@ -86,7 +86,7 @@ function Main(props) {
             })}
 
             {/* 로딩 만들어보기 */}
-            {
+            {status === 'loading' &&
               <div>
                 <PulseLoader
                   color="#36d7b7"
