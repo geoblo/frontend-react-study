@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from "axios";
+import { PulseLoader } from "react-spinners";
 
 // 리액트(JS)에서 이미지 파일 import 하는법
 import yonexImg from "../images/yonex.jpg";
@@ -83,6 +84,17 @@ function Main(props) {
             {productList.map((product) => {
               return <ProductListItem key={product.id} product={product} />;
             })}
+
+            {/* 로딩 만들어보기 */}
+            {
+              <div>
+                <PulseLoader
+                  color="#36d7b7"
+                  margin={50}
+                  size={30}
+                />
+              </div>
+            }
           </Row>
         </Container>
 
