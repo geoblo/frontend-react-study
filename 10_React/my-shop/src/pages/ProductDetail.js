@@ -6,7 +6,7 @@ import styled, { keyframes } from "styled-components";
 // 서버에서 받아온 데이터라고 가정
 import data from "../data.json";
 import { useDispatch, useSelector } from 'react-redux';
-import { getSelectedProduct, selectSelectedProduct } from '../features/product/productSlice';
+import { clearSelectedProduct, getSelectedProduct, selectSelectedProduct } from '../features/product/productSlice';
 import { toast } from 'react-toastify';
 import TabContents from '../components/TabContents';
 
@@ -45,6 +45,11 @@ function ProductDetail() {
     });
     if (!foundProduct) return;
     dispatch(getSelectedProduct(foundProduct));
+
+    // 상세 페이지가 언마운트 될 때 전역 상태 초기화
+    return () => {
+      dispatch(clearSelectedProduct());
+    };
   }, []);
 
   useEffect(() => {
