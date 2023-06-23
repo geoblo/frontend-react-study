@@ -44,10 +44,19 @@ const cartSlice = createSlice({
         state.cartList.push(item);
       }
     },
+    // 장바구니에서 삭제
+    removeItemFromCart: (state, { payload: id }) => {
+      // const targetIndex = state.cartList.findIndex((cart) => cart.id === id);
+      // state.cartList.splice(targetIndex, 1);
+
+      // filter() 사용 시
+      const newCartList = state.cartList.filter((cart) => cart.id !== id);
+      state.cartList = newCartList;
+    }
   }
 });
 
-export const { increaseCount, decreaseCount, addItemToCart } = cartSlice.actions;
+export const { increaseCount, decreaseCount, addItemToCart, removeItemFromCart } = cartSlice.actions;
 
 export const selectCartList = (state) => state.cart.cartList;
 
