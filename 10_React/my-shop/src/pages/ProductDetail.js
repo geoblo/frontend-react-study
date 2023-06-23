@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Alert, Button, Col, Container, Form, Nav, Row } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { Alert, Button, Col, Container, Form, Modal, Nav, Row } from 'react-bootstrap';
+import { useNavigate, useParams } from 'react-router-dom';
 import styled, { keyframes } from "styled-components";
 
 // 서버에서 받아온 데이터라고 가정
@@ -32,6 +32,10 @@ function ProductDetail() {
   const [orderCount, setOrderCount] = useState(1); // 주문수량 상태
   const [showTabIndex, setShowTabIndex] = useState(0); // 탭 상태
   const [showTab, setShowTab] = useState('detail'); // 탭 상태
+  const [showModal, setShowModal] = useState(false); // 모달 상태
+  const handleClose = () => setShowModal(false);
+  const handleOpen = () => setShowModal(true);
+  const navigate = useNavigate();
 
   // 숫자 포맷 적용
   const formatter = new Intl.NumberFormat('ko-KR', { style: 'currency', currency: 'KRW' });
@@ -117,6 +121,7 @@ function ProductDetail() {
                 ...product,
                 count: orderCount
               }));
+              handleOpen();
             }}
           >
             장바구니
@@ -182,6 +187,25 @@ function ProductDetail() {
         }[showTab]
       }
 
+      {/* 장바구니에 담기 모달 만들기 */}
+      {/* 추후 공통 모달로 만드는 것이 좋음 */}
+      <Modal show={showModal} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>🛒 고니네 샵 알림</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          장바구니에 상품을 담았습니다.<br />
+          장바구니로 이동하시겠습니까?
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            취소
+          </Button>
+          <Button variant="primary" onClick={() => { navigate('/cart'); }}>
+            확인
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Container>
   );
 }
