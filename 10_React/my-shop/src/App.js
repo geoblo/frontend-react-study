@@ -28,6 +28,12 @@ const GlobalStyle = createGlobalStyle`
   .cursor-pointer {
     cursor: pointer;
   }
+
+  .text-ellipsis {
+    white-space: nowrap; // 줄바꿈 안함
+    overflow: hidden; // 넘친 부분 숨기기
+    text-overflow: ellipsis; // 넘친 부분을 어떻게 보일지 지정(ellipsis = 줄임표)
+  }
 `;
 
 function App() {

@@ -30,10 +30,11 @@ function LatestView() {
       <Card.Header>최근 본 상품</Card.Header>
       <ListGroup variant="flush">
         {latestViewedProducts.map((product, index) => 
-          <>
+          // 주의: key 속성은 가장 최상위 엘리먼트에 부여, <></>에는 속성 사용 불가 
+          <React.Fragment key={product.id}>
             <img src={product.imagePath} alt={`img-${index}`} />
-            <ListGroup.Item>{product.title}</ListGroup.Item>
-          </>
+            <ListGroup.Item className='text-ellipsis'>{product.title}</ListGroup.Item>
+          </React.Fragment>
         )}
       </ListGroup>
     </LatestViewWrapper>
