@@ -51,6 +51,15 @@ function ProductDetail() {
     if (!foundProduct) return;
     dispatch(getSelectedProduct(foundProduct));
 
+    // 해당 상품의 id값을 localStorage에 추가
+    let latestViewed = JSON.parse(localStorage.getItem('latestViewed')) || []; // 처음에 null이니까 기본값으로 빈배열 넣어줌
+    // id값을 넣기 전에 기존 배열에 존재하는지 검사하거나
+    // 아니면 일단 넣고 Set 자료형을 이용하여 중복 제거(간편함)
+    latestViewed.push(productId);
+    latestViewed = new Set(latestViewed); // 중복 요소가 제거됨
+    latestViewed = [...latestViewed];
+    localStorage.setItem('latestViewed', JSON.stringify(latestViewed));
+
     // 상세 페이지가 언마운트 될 때 전역 상태 초기화
     return () => {
       dispatch(clearSelectedProduct());
