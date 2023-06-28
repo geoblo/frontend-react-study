@@ -53,6 +53,7 @@ import SimpleRouter from './chapter16/SimpleRouter';
 import ApiRequest from './chapter17/ApiRequest';
 import CounterApp from './chapter18/CounterApp';
 import { store } from './chapter18/app/store';
+import AppContainer from './components/AppContainer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // Root DOM Node에 렌더링 하도록 하는 함수
@@ -141,9 +142,13 @@ root.render(
   // 2. 리액트에 Redux Store 제공하기
   // CounterApp 컴포넌트와 그 하위 자식들은 Redux Store에 접근 가능
   // Redux Store에 저장된 state들을 마음대로 꺼내 쓸 수 있음
-  <Provider store={store}>
-    <CounterApp />
-  </Provider>
+  // <Provider store={store}>
+  //   <CounterApp />
+  // </Provider>
+
+  // 다양한 컴포넌트 예제
+  // npm install framer-motion polished react-icons styled-reset swiper @fullcalendar/core @fullcalendar/react @fullcalendar/daygrid
+  <AppContainer />
 );
 
 // 4장 예제
