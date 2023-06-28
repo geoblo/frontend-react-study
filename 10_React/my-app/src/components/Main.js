@@ -13,7 +13,7 @@ function Main() {
     <>
       {/* 공통 컴포넌트 */}
       {/* Common Button */}
-      <Button size="medium" outline onClick={() => { setShowModal(true); }}>모달</Button>
+      <Button size="medium" outline onClick={() => { setShowModal(true); }}>Modal</Button>
 
       {/* Swiper */}
       <Button size="medium" outline onClick={() => { navigate('/swiper'); }}>Swiper</Button>
