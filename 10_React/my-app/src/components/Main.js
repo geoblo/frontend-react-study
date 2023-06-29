@@ -24,6 +24,9 @@ function Main() {
       {/* FullCalendar */}
       <Button size="medium" outline onClick={() => { navigate('/calendar'); }}>FullCalendar</Button>
 
+      {/* Image Preview */}
+      <Button size="medium" outline onClick={() => { navigate('/image-preview'); }}>Image Preview</Button>
+
       {/* Common Modal */}
       <Modal
         title="경고"

@@ -92,6 +92,7 @@ function AppContainer() {
         <Route path="/swiper" element={<SwiperEx />} />
         <Route path="/motion" element={<FramerMotionEx />} />
         <Route path="/calendar" element={<FullCalendarEx />} />
+        <Route path="/image-preview" element={<ImagePreviewEx />} />
       </Routes>
     </BrowserRouter>
   );
