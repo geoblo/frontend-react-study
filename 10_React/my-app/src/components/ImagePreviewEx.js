@@ -4,13 +4,14 @@ import styled from 'styled-components';
 const PreiviewContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin-top: 16;
+  margin-top: 16px;
 `;
 
 const Preiview = styled.div`
   width: 200px;
   height: 200px;
   padding: 4px;
+  margin-right: 8px;
   border-radius: 6px;
   border: 1px solid #eaeaea;
 
