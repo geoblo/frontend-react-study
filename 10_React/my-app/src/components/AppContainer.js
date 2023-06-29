@@ -8,6 +8,7 @@ import Main from "./Main";
 import FramerMotionEx from "./FramerMotionEx";
 import FullCalendarEx from "./FullCalendarEx";
 import SwiperEx from "./SwiperEx";
+import ImagePreviewEx from "./ImagePreviewEx";
 
 const Header = styled.header`
   background: #1c1c1c;
