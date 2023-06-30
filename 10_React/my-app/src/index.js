@@ -147,7 +147,7 @@ root.render(
   // </Provider>
 
   // 다양한 컴포넌트 예제
-  // npm install framer-motion polished react-icons styled-reset swiper @fullcalendar/core @fullcalendar/react @fullcalendar/daygrid
+  // npm install framer-motion polished react-icons styled-reset swiper @fullcalendar/core @fullcalendar/react @fullcalendar/daygrid @lottiefiles/lottie-player react-youtube
   <AppContainer />
 );
 

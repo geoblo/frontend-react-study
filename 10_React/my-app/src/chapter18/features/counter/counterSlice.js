@@ -33,7 +33,7 @@ export const counterSlice = createSlice({
   },
 });
 
-console.log(counterSlice);
+// console.log(counterSlice);
 
 // 각 리듀서에 대한 액션 생성 함수들이 객체 형태로 들어있음
 // 액션 생성 함수를 사용하면 해당 액션 객체가 만들어짐

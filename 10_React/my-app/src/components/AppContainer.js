@@ -9,6 +9,8 @@ import FramerMotionEx from "./FramerMotionEx";
 import FullCalendarEx from "./FullCalendarEx";
 import SwiperEx from "./SwiperEx";
 import ImagePreviewEx from "./ImagePreviewEx";
+import LottieFilesEx from "./LottieFilesEx";
+import YouTubeEx from "./YouTubeEx";
 
 const Header = styled.header`
   background: #1c1c1c;
@@ -94,6 +96,8 @@ function AppContainer() {
         <Route path="/motion" element={<FramerMotionEx />} />
         <Route path="/calendar" element={<FullCalendarEx />} />
         <Route path="/image-preview" element={<ImagePreviewEx />} />
+        <Route path="/lottie" element={<LottieFilesEx />} />
+        <Route path="/youtube" element={<YouTubeEx />} />
       </Routes>
     </BrowserRouter>
   );

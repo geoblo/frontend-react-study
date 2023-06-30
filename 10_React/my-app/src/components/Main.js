@@ -27,6 +27,12 @@ function Main() {
       {/* Image Preview */}
       <Button size="medium" outline onClick={() => { navigate('/image-preview'); }}>Image Preview</Button>
 
+      {/* LottieFiles */}
+      <Button size="medium" outline onClick={() => { navigate('/lottie'); }}>LottieFiles</Button>
+
+      {/* YouTube */}
+      <Button size="medium" outline onClick={() => { navigate('/youtube'); }}>YouTube</Button>
+
       {/* Common Modal */}
       <Modal
         title="경고"
