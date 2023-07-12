@@ -40,3 +40,9 @@ npm install -g typescript
 
 4. tsconfig.json 작성(타입스크립트 설정)
 tsc --init
+
+5. 브라우저 또는 Node는 타입스크립트를 이해하지 못하기 때문에 일반 자바스크립트로 변환 해야됨
+.js 파일로 변환하는 명령어
+tsc -w
+tsc는 TypeScript Compiler, -w는 watch모드 옵션: 켜두면 저장할때마다 자동 변환됨
+일반 자바스크립트로 번역되어 .js 파일이 자동 생성
