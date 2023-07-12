@@ -51,3 +51,32 @@ person = () => {};
 // person = undefined;
 // person = null;
 // (참고) https://hwani.dev/js-primitive-reference-types/
+
+let person2: { name: string, age: number } = { name: 'Kim', age: 35 };
+// 이 변수에는 객체만 들어올 수 있는데 name은 string, age는 number 타입만 가능
+
+let person3: { name: string, age: number, job?: string } = { name: 'Kim', age: 35 };
+// ? 사용 시 job 속성은 옵셔널
+
+
+// Quiz
+// Q1. 여러분의 직업(job), 하루 공부 시간(studyHours)을 변수로 각각 저장해보세요.
+// 타입은 명시적으로 지정
+
+
+// Q2. 여러분이 가장 좋아하는 곡과 가수 이름을 변수에 object 자료형으로 담아보세요.
+// 객체 안에는 노래 제목과 가수이름이 들어가면 됩니다.
+// 단, 제목과 가수는 문자만 들어올 수 있음
+
+
+// Q3. 다음과 같이 생긴 자료의 타입 지정을 해보세요.
+// let project = {
+//   member: ['Kim', 'Park'],
+//   days: 30,
+//   started: true
+// };
+
+// project 변수 우측에 적으면 됩니다.
+// member 속성은 문자로 이루어진 배열만 들어올 수 있고,
+// days 속성은 숫자,
+// started 속성은 true/false만 들어올 수 있음
