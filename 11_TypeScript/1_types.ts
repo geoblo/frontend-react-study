@@ -58,6 +58,14 @@ let person2: { name: string, age: number } = { name: 'Kim', age: 35 };
 let person3: { name: string, age: number, job?: string } = { name: 'Kim', age: 35 };
 // ? 사용 시 job 속성은 옵셔널
 
+// 어떤 함수의 매개변수가 객체 자료형을 받는다고 가정
+function greetUser(user: { name: string, age: number }) {
+  console.log(`hello ${user.name}`);
+}
+greetUser({ name: 'Goni', age: 35 });
+// 객체의 모든 속성을 명시적으로 지정한 덕분에 코드를 보는 모든 사람이 
+// 해당 객체로 무엇을 할 수 있고 무엇을 할 수 없는지 쉽게 알 수 있음
+
 
 // Quiz
 // Q1. 여러분의 직업(job), 하루 공부 시간(studyHours)을 변수로 각각 저장해보세요.
