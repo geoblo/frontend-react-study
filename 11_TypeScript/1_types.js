@@ -168,6 +168,10 @@ let value2 = 123;
 // let married = false; 
 // let userInfo = [userName, userAge, married];
 // 단, userAge 변수엔 undefined 말고 숫자도 들어올 수 있음
+let userName = 'Kim';
+let userAge = undefined;
+let married = false;
+let userInfo = [userName, userAge, married];
 // Q5. frontClass라는 변수에 타입을 지정해보세요.
 // let frontClass = {
 //   subject: ['html', 'css', 'js', false],
@@ -178,3 +182,10 @@ let value2 = 123;
 // frontClass.student = ['Lee', 'Park'];
 // 타입 지정을 안해주면 터미널에 에러 발생
 // 에러가 안나게 frontClass라는 변수에 타입 지정
+let frontClass = {
+    subject: ['html', 'css', 'js', false],
+    score: [100, 95, 85, 90],
+    teacher: 'Kim',
+    student: 'Lee'
+};
+frontClass.student = ['Lee', 'Park'];
