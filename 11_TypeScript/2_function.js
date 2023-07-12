@@ -28,6 +28,21 @@ printY(1);
 // Q1. 이름을 파라미터로 입력하면 콘솔창에 "안녕하세요 ~~님"을 출력해주고
 // 아무것도 입력하지 않고 함수를 호출하면 "이름이 없습니다" 를 출력하는 함수를 만들어보세요.
 // 이 때 파라미터와 return 타입 지정 하기
+function printName(name) {
+    if (name) {
+        console.log(`안녕하세요 ${name}님`);
+    }
+    else {
+        console.log('이름이 없습니다.');
+    }
+}
+printName('재현');
+printName();
 // Q2. 함수에 문자를 집어넣으면 자릿수를 세어 출력해주는 함수를 만들어보세요. (length 속성 이용)
 // 예를 들어 'apple'을 입력하면 5가 return 되어야 함
-// 문자 이외의 자료가 들어오면 안됨 
+// 문자 이외의 자료가 들어오면 안됨
+function countTextLength(text) {
+    return text.length;
+}
+console.log(countTextLength('apple'));
+console.log(countTextLength('재현'));
