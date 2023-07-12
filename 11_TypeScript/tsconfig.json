@@ -6,6 +6,7 @@
 
     // 유용한 추가 옵션들
     "strictNullChecks": true,
+    "noImplicitAny": true, // 암시적 any 타입 금지 여부
   }
 }
 // "target"은 타입스크립트 파일을 어떤 버전의 자바스크립트로 바꿔줄지 정하는 부분
