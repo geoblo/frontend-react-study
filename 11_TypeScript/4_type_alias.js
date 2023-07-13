@@ -36,5 +36,22 @@ function testFunc(params) {
 testFunc("hello");
 // Quiz
 // Q5.
-// 1. 가위/바위/보 중 1개를 입력할 수 있고 (예: func('가위');)
-// 2. 가위/바위/보 만 담을수 있는 배열을 리턴하는 함수 (return ['가위', '보'];)
+// 1. '가위'/'바위'/'보' 중 1개를 입력할 수 있고 (예: func('가위');)
+// 2. '가위'/'바위'/'보' 만 담을수 있는 배열을 리턴하는 함수 (return ['가위', '보'];)
+function game(params) {
+    return ['가위', "바위", "가위", "바위", "보"];
+}
+game("가위");
+// 함수표현식에만 Type Alias 사용 가능
+const myFunc4 = (params) => {
+    return 0;
+};
+const memberInfo = {
+    name: 'Kim',
+    age: 30,
+    plusOne(a) {
+        return a + 1;
+    },
+    changeName: () => { }
+};
+memberInfo.plusOne(1);

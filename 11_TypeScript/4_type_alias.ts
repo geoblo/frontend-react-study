@@ -122,5 +122,36 @@ testFunc("hello");
 
 // Quiz
 // Q5.
-// 1. 가위/바위/보 중 1개를 입력할 수 있고 (예: func('가위');)
-// 2. 가위/바위/보 만 담을수 있는 배열을 리턴하는 함수 (return ['가위', '보'];)
+// 1. '가위'/'바위'/'보' 중 1개를 입력할 수 있고 (예: func('가위');)
+// 2. '가위'/'바위'/'보' 만 담을수 있는 배열을 리턴하는 함수 (return ['가위', '보'];)
+function game(params: '가위' | '바위' | '보'): ('가위' | '바위' | '보')[] {
+  return ['가위', "바위", "가위", "바위", "보"];
+}
+game("가위");
+
+
+// 함수/메소드에 Type Alias를 지정하는 법
+type FuncType = (a: string) => number; // 함수 타입은 화살표 함수 모양으로 선언 가능
+
+// 함수표현식에만 Type Alias 사용 가능
+const myFunc4: FuncType = (params) => {
+  return 0;
+};
+
+// 객체 안의 함수(=메소드) 타입 지정은 어떻게?
+type MemberType = {
+  name: string,
+  age: number,
+  plusOne: (x: number) => number,
+  changeName: () => void
+};
+
+const memberInfo: MemberType = {
+  name: 'Kim',
+  age: 30,
+  plusOne(a) { // 메소드 선언
+    return a + 1;
+  },
+  changeName: () => {}
+};
+memberInfo.plusOne(1);
